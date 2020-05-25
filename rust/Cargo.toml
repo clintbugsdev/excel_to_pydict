@@ -1,0 +1,19 @@
+[package]
+name = "excel_to_pydict"
+version = "0.1.0"
+authors = ["Clinton Bugtong <clintbugs.dev@gmail.com>"]
+build = "build.rs"
+
+[lib]
+name = "excel_to_pydict"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+cbindgen = "0.14.2"
+
+[dependencies]
+pyo3 = "0.10.1"
+calamine = "0.16.1"
+serde = "1.0.110"
+serde_json = "1.0.53"
+libc = "0.2.70"

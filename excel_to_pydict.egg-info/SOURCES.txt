@@ -1,0 +1,8 @@
+setup.py
+excel_to_pydict/__init__.py
+excel_to_pydict.egg-info/PKG-INFO
+excel_to_pydict.egg-info/SOURCES.txt
+excel_to_pydict.egg-info/dependency_links.txt
+excel_to_pydict.egg-info/not-zip-safe
+excel_to_pydict.egg-info/requires.txt
+excel_to_pydict.egg-info/top_level.txt
