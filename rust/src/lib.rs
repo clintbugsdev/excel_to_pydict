@@ -46,7 +46,7 @@ pub extern "C" fn print_xlsx_file(f: *const c_char){
             // Set Designation
             let designation = row[1].to_string();
             // Set Price
-            let s_price = row[2].to_string();
+            let s_price = row[2].to_string().replace(",","");
             // Skip First Row with Cell 1 & 2 w/ Value "SKU" and "Product Designation"
             if sku == "SKU" && designation == "Product Designation" {
                 continue;
