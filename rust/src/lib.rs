@@ -7,9 +7,11 @@ extern crate serde_json;
 use libc::c_char;
 use std::ffi::CStr;
 use std::path::Path;
+use std::mem;
 
 use calamine::{open_workbook, Reader, Xlsx};
 use serde::{Deserialize, Serialize};
+
 
 #[allow(non_snake_case)]
 #[derive(Serialize, Deserialize, Debug)]
@@ -72,7 +74,9 @@ pub extern "C" fn print_xlsx_file(f: *const c_char){
     let s_products = format!("print('{}')", serde_json::to_string(&products).unwrap());
     // Initiate Python and Run Print Products
     let py = pyo3::Python::acquire_gil();
-    py.python().run(&s_products, None, None).unwrap(); 
+    py.python().run(&s_products, None, None).unwrap();
+    mem::forget(products);
+    mem::forget(s_products);
 }
 
 #[cfg(test)]
